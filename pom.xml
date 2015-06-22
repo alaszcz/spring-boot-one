@@ -25,6 +25,10 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
     <build>
         <plugins>
         	<!-- Include maven-plugin to create executable jar. Run the jar with: java -jar target/spring-boot-one-1.1.jar -->
