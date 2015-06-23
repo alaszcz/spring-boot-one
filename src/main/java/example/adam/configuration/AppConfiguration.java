@@ -6,9 +6,11 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 @EnableAutoConfiguration
-@ComponentScan(basePackages={"example.adam.controller"})
+@ComponentScan(basePackages={"example.adam.controller", "example.adam.util"})
 @Import({AppEnvDevConfiguration.class, AppEnvAiteConfiguration.class})
 public class AppConfiguration {
 
@@ -28,6 +30,15 @@ public class AppConfiguration {
 	@Bean
 	public String environmentVersion() {
 		return appEnvConfiguration.getVersion();
+	}
+
+	@Bean
+	public InternalResourceViewResolver viewResolver() {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/pages/");
+		resolver.setSuffix(".jsp");
+		resolver.setViewClass(JstlView.class);
+		return resolver;
 	}
 
 }

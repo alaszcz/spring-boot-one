@@ -1,3 +1,6 @@
+#
+# Properties valid for AITE environment
+#
 environment:
    name: AITE
    version: 1.0

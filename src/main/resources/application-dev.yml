@@ -1,3 +1,6 @@
+#
+# Properties valid for development
+#
 environment:
    name: Development
    version: 0.1
