@@ -1,6 +1,9 @@
 #
 # Global properties (common for all environments)
 #
+spring:
+   datasource:
+      platform: hsqldb
 application:
    message:
       text: Hello Spring!
