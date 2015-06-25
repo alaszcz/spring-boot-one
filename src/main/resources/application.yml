@@ -3,7 +3,11 @@
 #
 spring:
    datasource:
-      platform: hsqldb
+      url: jdbc:mysql://localhost:3306/drupal7
+      username: drupal
+      password: drupal
+      platform: mysql
+#      platform: hsqldb
 application:
    message:
       text: Hello Spring!

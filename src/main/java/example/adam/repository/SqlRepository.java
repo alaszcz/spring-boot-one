@@ -17,7 +17,8 @@ public class SqlRepository {
 	}
 
 	public List<String> getStrings() {
-		String querySql = "select NAME from DATA_TABLE";
+//		String querySql = "select NAME from DATA_TABLE";
+		String querySql = "select aid from d7testactions";
 		List<String> result = jdbcTemplate.queryForList(querySql, String.class);
 		return result;
 	}
