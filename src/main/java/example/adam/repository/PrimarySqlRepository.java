@@ -7,19 +7,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class SqlRepository {
-
-	private final JdbcTemplate jdbcTemplate;
+public class PrimarySqlRepository {
 
 	@Autowired
-	public SqlRepository(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
+	private JdbcTemplate primaryJdbcTemplate;
 
 	public List<String> getStrings() {
 //		String querySql = "select NAME from DATA_TABLE";
 		String querySql = "select aid from d7testactions";
-		List<String> result = jdbcTemplate.queryForList(querySql, String.class);
+		List<String> result = primaryJdbcTemplate.queryForList(querySql, String.class);
 		return result;
 	}
 

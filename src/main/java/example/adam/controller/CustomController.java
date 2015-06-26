@@ -5,7 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import example.adam.repository.SqlRepository;
+import example.adam.repository.SecondarySqlRepository;
+import example.adam.repository.PrimarySqlRepository;
 import example.adam.util.DateTimeUtil;
 
 @Controller
@@ -15,11 +16,14 @@ public class CustomController {
 	private DateTimeUtil dateTimeUtil;
 
 	@Autowired
-	private SqlRepository sqlRepository;
+	private PrimarySqlRepository primarySqlRepository;
+
+	@Autowired
+	private SecondarySqlRepository secondarySqlRepository;
 
 	@RequestMapping(value="/custom")
 	public String custom(ModelMap modelMap) {
-		modelMap.put("msg", dateTimeUtil.getTimeFormatted() + ": " + sqlRepository.getStrings());
+		modelMap.put("msg", dateTimeUtil.getTimeFormatted() + ": " + primarySqlRepository.getStrings() + " - " + secondarySqlRepository.getStrings());
  		return "CustomPage";
  	}
  

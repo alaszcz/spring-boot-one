@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.adam.repository.SqlRepository;
+import example.adam.repository.PrimarySqlRepository;
+import example.adam.repository.SecondarySqlRepository;
 import example.adam.util.DateTimeUtil;
 
 @RestController
@@ -24,11 +25,14 @@ public class CustomRestController {
 	private String environmentVersion;
 
 	@Autowired
-	private SqlRepository sqlRepository;
+	private PrimarySqlRepository primarySqlRepository;
+
+	@Autowired
+	private SecondarySqlRepository secondarySqlRepository;
 
 	@RequestMapping("/rest")
 	public String rest() {
-		return dateTimeUtil.getTimeFormatted() + ": " + environmentName + " ver. " + environmentVersion +  ": " + message + " - " + sqlRepository.getStrings();
+		return dateTimeUtil.getTimeFormatted() + ": " + environmentName + " ver. " + environmentVersion +  ": " + message + " - " + primarySqlRepository.getStrings() + " - " + secondarySqlRepository.getStrings();
 	}
 
 }
