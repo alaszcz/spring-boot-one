@@ -12,9 +12,8 @@ public class SecondarySqlRepository {
 	@Autowired
 	private JdbcTemplate secondaryJdbcTemplate;
 
-	public List<String> getStrings() {
-//		String querySql = "select NAME from DATA_TABLE";
-		String querySql = "select field_name from spk_field_config";
+	public List<String> getSizes() {
+		String querySql = "select SIZE from ORANGES";
 		List<String> result = secondaryJdbcTemplate.queryForList(querySql, String.class);
 		return result;
 	}

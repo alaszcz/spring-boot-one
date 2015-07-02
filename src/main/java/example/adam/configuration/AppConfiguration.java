@@ -1,5 +1,7 @@
 package example.adam.configuration;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -15,6 +17,9 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages={"example.adam.controller", "example.adam.repository", "example.adam.util"})
 @Import({AppEnvDevConfiguration.class, AppEnvAiteConfiguration.class, DatabaseConfiguration.class})
 public class AppConfiguration {
+
+	private static int PORT = 9000;
+	private Logger LOG = LoggerFactory.getLogger(AppConfiguration.class);
 
 	// the app @Configuration class injected for this @Profile
 	@Autowired
@@ -47,7 +52,8 @@ public class AppConfiguration {
 	@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-		factory.setPort(9000);
+		factory.setPort(PORT);
+		LOG.info("SPRING-BOOT-ONE APPLICATION ACCESSIBLE AT http://localhost:" + PORT + "/index.jsp");
 		return factory;
 	}
 

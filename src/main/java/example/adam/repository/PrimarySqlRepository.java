@@ -12,9 +12,8 @@ public class PrimarySqlRepository {
 	@Autowired
 	private JdbcTemplate primaryJdbcTemplate;
 
-	public List<String> getStrings() {
-//		String querySql = "select NAME from DATA_TABLE";
-		String querySql = "select aid from d7testactions";
+	public List<String> getNames() {
+		String querySql = "select NAME from APPLES";
 		List<String> result = primaryJdbcTemplate.queryForList(querySql, String.class);
 		return result;
 	}

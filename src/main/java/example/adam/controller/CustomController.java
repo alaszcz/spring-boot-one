@@ -16,6 +16,12 @@ public class CustomController {
 	private DateTimeUtil dateTimeUtil;
 
 	@Autowired
+	private String environmentName;
+
+	@Autowired
+	private String environmentVersion;
+
+	@Autowired
 	private PrimarySqlRepository primarySqlRepository;
 
 	@Autowired
@@ -23,7 +29,10 @@ public class CustomController {
 
 	@RequestMapping(value="/custom")
 	public String custom(ModelMap modelMap) {
-		modelMap.put("msg", dateTimeUtil.getTimeFormatted() + ": " + primarySqlRepository.getStrings() + " - " + secondarySqlRepository.getStrings());
+		modelMap.put("now", dateTimeUtil.getTimeFormatted());
+		modelMap.put("environment", environmentName + " " + environmentVersion);
+		modelMap.put("repository1", primarySqlRepository.getNames());
+		modelMap.put("repository2", secondarySqlRepository.getSizes());
  		return "CustomPage";
  	}
  
