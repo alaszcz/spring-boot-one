@@ -2,7 +2,7 @@ spring:
   cloud:
     config:
       uri: http://localhost:8881
+      label: spring-boot-one-config-0.4
 
   application:
     name: spring-boot-one
-    label: spring-boot-one-config-0.3

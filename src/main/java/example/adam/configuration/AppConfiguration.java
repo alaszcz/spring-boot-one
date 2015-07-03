@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableAutoConfiguration
 @ComponentScan(basePackages={"example.adam.controller", "example.adam.repository", "example.adam.util"})
-@Import({AppEnvDevConfiguration.class, AppEnvAiteConfiguration.class, DatabaseConfiguration.class})
+@Import({AppEnvDevConfiguration.class, AppEnvAiteConfiguration.class})
 public class AppConfiguration {
 
 	private static int PORT = 9000;

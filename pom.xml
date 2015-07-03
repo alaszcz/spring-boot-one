@@ -69,7 +69,7 @@
         <plugins>
         	<!-- Include maven-plugin to create executable war.
         		 Executable jar doesn't work well with JSP.
-        	     Run the standalone app as: java -Dspring.profiles.active=dev -jar target/spring-boot-one-1.5.war -->
+        	     Run the standalone app as: java -Dspring.profiles.active=dev -jar target/spring-boot-one-1.6.war -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
