@@ -2,7 +2,9 @@ spring:
   cloud:
     config:
       uri: http://localhost:8881
-      label: spring-boot-one-config-0.4
+      label: spring-boot-one-config-0.5
+      username: user
+      password: guessme
 
   application:
     name: spring-boot-one
